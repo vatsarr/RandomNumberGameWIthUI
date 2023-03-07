@@ -7,6 +7,7 @@ let userTries = 0;
 const guessInput = document.getElementById("guess-input");
 const guessBtn = document.getElementById("guess-btn");
 const resultDiv = document.getElementById("result");
+const guessesContainer = document.getElementById("guessList");
 
 // Add event listener to button
 guessBtn.addEventListener("click", function () {
@@ -32,11 +33,13 @@ guessBtn.addEventListener("click", function () {
       maxTries - userTries
     } tries left.`;
     resultDiv.className = "error";
+    guessHistory();
   } else if (guess > randomNumber) {
     resultDiv.innerHTML = `Too high, try again. You have ${
       maxTries - userTries
     } tries left.`;
     resultDiv.className = "error";
+    guessHistory();
   }
 
   if (userTries === maxTries) {
@@ -63,4 +66,15 @@ function reloadBTN() {
 
   // add button to the page
   document.body.appendChild(refreshButton);
+}
+
+function guessHistory() {
+  let guessesHeading = document.createElement("div");
+  guessesHeading.className = "userGuesses";
+  guessesHeading.innerHTML = "Your guess:";
+  guessesContainer.appendChild(guessesHeading);
+  let newGuess = document.createElement("li");
+  newGuess.innerHTML = parseInt(guessInput.value);
+  newGuess.className = "li-styling";
+  guessesContainer.appendChild(newGuess);
 }
