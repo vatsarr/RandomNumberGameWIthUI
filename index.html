@@ -9,16 +9,31 @@
   </head>
   <body>
     <div class="container">
-      <h1>Guess the Number Game</h1>
-      <p>Enter a number between 1 and 100:</p>
-      <input type="text" id="guess-input" />
-      <button id="guess-btn">Guess</button>
+      <div class="game-header">
+        <h1>Guess the Number Game</h1>
+        <p>Enter a number between 1 and 100:</p>
+      </div>
+
+      <div class="guess-container">
+        <div id="2input"></div>
+        <input type="number" id="guess-input" placeholder="Enter guess" />
+        <div class="info">
+          <div id="timer-container">
+            <span id="minutes">00</span>:<span id="seconds">00</span>
+          </div>
+          <span class="tries-left" id="tries-left"></span>
+        </div>
+        <br />
+        <button id="guess-btn">Guess</button>
+      </div>
+
       <div id="result"></div>
       <div class="user-guesses" id="guessContainer">
-        <ul id="guessList">
+        <ol reversed id="guessList">
           <li class="li-styling"></li>
-        </ul>
+        </ol>
       </div>
+
       <div class="reload-btn"></div>
     </div>
     <script src="js/app.js"></script>
